@@ -9,6 +9,11 @@
     --thirdly-color: #5f5b53;
 }
 
+html,
+body {
+    scroll-behavior: smooth;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -61,23 +66,32 @@ a {
 }
 
 /* ========== Header ========== */
-
 .header {
-    position: sticky;
-    top: -26px;
     padding: 36px 0px 10px;
     background: #fffcf4;
 }
 
-.navbar {
+.header.fixed {
+    position: sticky;
+    top: -26px;
+}
+
+.header .body {
     display: flex;
     align-items: center;
 }
 
+.header .navbar {
+    margin-right: 49px;
+    margin-left: auto;
+}
+
 .navbar ul {
     display: flex;
-    gap: 42px;
-    margin-left: 512px;
+}
+
+.navbar li {
+    padding: 8px 21px;
 }
 
 .navbar ul li a {
@@ -87,30 +101,27 @@ a {
     line-height: 1.75;
 }
 
-.navbar ul li:hover a,
-.navbar ul li:first-child a {
+.navbar ul li a:hover,
+.navbar ul li.active a {
     color: var(--primary-color);
-    font-weight: 600;
+    /* font-weight: 600; */
+    text-shadow: 1px 0 0 currentColor;
 }
 
-.navbar ul li:first-child {
+.navbar ul li.active {
     position: relative;
 }
 
-.navbar ul li:first-child::after {
+.navbar ul li.active::after {
     content: "";
     position: absolute;
-    bottom: 0px;
-    left: 0;
+    bottom: 6px;
+    left: 21px;
     display: inline-block;
     width: 12px;
     height: 2px;
     border-radius: 1px;
     background: var(--primary-color);
-}
-
-.navbar .action-btn {
-    margin-left: auto;
 }
 
 /* ========== Hero ========== */
